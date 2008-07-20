@@ -1,11 +1,5 @@
 require '../test_helper'
 
-# module Crags
-#   module Searcher
-#     def search_location(key, loc); end
-#   end
-# end
-
 context "Runner" do
   setup do
     @runner = Crags::Runner.new

@@ -1,18 +1,5 @@
 require '../test_helper'
 
-context "Searcher" do
-  setup do
-    extend Crags::Searcher
-    stubs(:sleep)
-  end
-
-  specify "fetch doc should hpricot fetched html" do
-    stubs(:fetch_html).with("url").returns("html")
-    Hpricot.expects(:parse).with("html").returns("doc")
-    fetch_doc("url").should == "doc"
-  end
-end
-
 context "Searcher with stubbed fetch doc" do
   setup do
     extend Crags::Searcher
@@ -71,12 +58,6 @@ context "Searcher with stubbed fetch doc" do
       expects(:create_link).with(i).returns("omg#{i}")
     end
     search_location("keyword", "url").should == ['omg1','omg2','omg3']
-  end
-
-  specify "fetch html should curl a url" do
-    curb = stub(:body_str => "uhh")
-    Curl::Easy.expects(:perform).with("url").returns(curb)
-    fetch_html("url").should == "uhh"
   end
 
   specify "create link should return an a href based on item element" do

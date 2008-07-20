@@ -1,5 +1,6 @@
 # $Id$
 
+require 'rubygems'
 require 'curb'
 require 'hpricot'
 
@@ -54,6 +55,8 @@ end  # module Crags
 
 # Crags.require_all_libs_relative_to __FILE__
 
+require 'crags/fetch'
+require 'crags/proxy'
 require 'crags/searcher'
 require 'crags/runner'
 

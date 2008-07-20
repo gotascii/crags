@@ -1,5 +1,7 @@
 module Crags
   module Searcher
+    include Fetch
+
     def location_doc
       fetch_doc("http://geo.craigslist.org/iso/us")
     end
@@ -38,14 +40,6 @@ module Crags
       items(doc).collect do |item|
         create_link(item)
       end
-    end
-
-    def fetch_doc(url)
-      Hpricot.parse(fetch_html(url))
-    end
-
-    def fetch_html(url)
-      Curl::Easy.perform(url).body_str
     end
 
     def create_link(item)
