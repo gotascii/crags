@@ -1,13 +1,15 @@
 History.txt
 Manifest.txt
+NOTES
 README.txt
 Rakefile
 bin/crags
 lib/crags.rb
+lib/crags/fetch.rb
+lib/crags/proxy.rb
 lib/crags/runner.rb
 lib/crags/searcher.rb
-spec/crags_spec.rb
-spec/spec_helper.rb
+lib/js/client.html
 tasks/ann.rake
 tasks/annotations.rake
 tasks/bones.rake
@@ -20,6 +22,8 @@ tasks/setup.rb
 tasks/spec.rake
 tasks/svn.rake
 tasks/test.rake
+test/crags/fetch_test.rb
+test/crags/proxy_test.rb
 test/crags/runner_test.rb
 test/crags/searcher_test.rb
 test/test_helper.rb
