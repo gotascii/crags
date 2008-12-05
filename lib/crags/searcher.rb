@@ -24,10 +24,10 @@ module Crags
       categories
     end
 
-    def search(keyword, category = 'sss')
+    def search(keyword, category = 'sss', &block)
       locations.collect do |loc|
         sleep(1 + rand(3))
-        search_location(keyword, loc, category)
+        search_location(keyword, loc, category, &block)
       end.flatten
     end
 
@@ -35,10 +35,13 @@ module Crags
       doc.search("item")
     end
 
-    def search_location(keyword, loc, category = 'sss')
+    def search_location(keyword, loc, category = 'sss', &block)
+      puts "#{loc}search/#{category}?query=#{keyword}&format=rss"
       doc = fetch_doc("#{loc}search/#{category}?query=#{keyword}&format=rss")
       items(doc).collect do |item|
-        create_link(item)
+        link = create_link(item)
+        yield link if block_given?
+        link
       end
     end
 
