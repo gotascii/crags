@@ -36,7 +36,6 @@ module Crags
     end
 
     def search_location(keyword, loc, category = 'sss', &block)
-      puts "#{loc}search/#{category}?query=#{keyword}&format=rss"
       doc = fetch_doc("#{loc}search/#{category}?query=#{keyword}&format=rss")
       items(doc).collect do |item|
         link = create_link(item)
