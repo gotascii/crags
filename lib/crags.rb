@@ -3,7 +3,7 @@ require 'curb'
 require 'hpricot'
 
 module Crags
-  VERSION = '1.0.1'
+  VERSION = '1.0.2'
   LIBPATH = ::File.expand_path(::File.dirname(__FILE__)) + ::File::SEPARATOR
   PATH = ::File.dirname(LIBPATH) + ::File::SEPARATOR
 
