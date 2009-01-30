@@ -23,11 +23,12 @@ There are a bunch of helpful api methods, check the tests for more info.
 
 == REQUIREMENTS:
 
-hpricot and curb
+hpricot
+curb
 
 == INSTALL:
 
-* FIXME (sudo gem install, anything else)
+sudo gem install gotascii-crags -s http://gems.github.com
 
 == LICENSE:
 
