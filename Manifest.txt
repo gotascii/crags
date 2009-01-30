@@ -3,6 +3,7 @@ History.txt
 Manifest.txt
 README.txt
 Rakefile
+crags.gemspec
 lib/crags.rb
 lib/crags/fetch.rb
 lib/crags/proxy.rb
