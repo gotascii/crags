@@ -36,7 +36,7 @@ module Crags
     end
 
     def search_location(keyword, loc, category = 'sss', &block)
-      doc = fetch_doc("#{loc}search/#{category}?query=#{keyword}&format=rss")
+      doc = fetch_doc("http://#{loc}/search/#{category}?query=#{keyword}&format=rss")
       items(doc).collect do |item|
         link = create_link(item)
         yield link if block_given?

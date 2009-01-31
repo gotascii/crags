@@ -46,7 +46,7 @@ context "Searcher with stubbed fetch doc" do
   end
 
   specify "search location should fetch doc for search url" do
-    expects(:fetch_doc).with("urlsearch/sss?query=keyword&format=rss")
+    expects(:fetch_doc).with("http://url/search/sss?query=keyword&format=rss")
     stubs(:items).returns([])
     search_location("keyword", "url")
   end
@@ -98,13 +98,13 @@ context "Searcher with stubbed fetch doc" do
   end
 
   specify "search location should accept a category parameter" do
-    expects(:fetch_doc).with("locsearch/scram?query=keyword&format=rss")
+    expects(:fetch_doc).with("http://loc/search/scram?query=keyword&format=rss")
     stubs(:items).returns([])
     search_location('keyword', 'loc', 'scram')
   end
 
   specify "search location default category is sss" do
-    expects(:fetch_doc).with("locsearch/sss?query=keyword&format=rss")
+    expects(:fetch_doc).with("http://loc/search/sss?query=keyword&format=rss")
     stubs(:items).returns([])
     search_location('keyword', 'loc')
   end
