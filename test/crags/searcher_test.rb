@@ -21,7 +21,7 @@ context "Searcher with stubbed fetch doc" do
   specify "locations should return array of urls using a location link's href" do
     links = []
     2.times do |i|
-      links << mock {|m| m.expects(:[]).with("href").returns("url#{i}") }
+      links << mock {|m| m.expects(:[]).with("href").returns("http://url#{i}/") }
     end
     stubs(:location_links).returns(links)
     locations.should == ["url0", "url1"]

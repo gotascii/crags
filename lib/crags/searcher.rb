@@ -11,7 +11,7 @@ module Crags
     end
 
     def locations
-      location_links.collect{|link| link["href"] }
+      location_links.collect{|link| link["href"].gsub(/http\:\/\/(.*)\//,'\1') }
     end
 
     def categories
