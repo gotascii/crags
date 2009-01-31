@@ -7,6 +7,11 @@ context "Searcher with stubbed fetch doc" do
     stubs(:fetch_doc)
   end
 
+  specify "strip_http should remove http:// and trailing /" do
+    url = "http://omg/"
+    strip_http(url).should == "omg"
+  end
+
   specify "location doc should fetch doc at location url" do
     expects(:fetch_doc).with("http://geo.craigslist.org/iso/us").returns("doc")
     location_doc.should == "doc"
@@ -51,28 +56,24 @@ context "Searcher with stubbed fetch doc" do
     search_location("keyword", "url")
   end
 
-  specify "search location should create link with each item in doc items and return list" do
+  specify "search location should create return items" do
     items = [1,2,3]
     expects(:items).returns(items)
-    items.each do |i|
-      expects(:create_link).with(i).returns("omg#{i}")
-    end
-    search_location("keyword", "url").should == ['omg1','omg2','omg3']
-  end
-
-  specify "create link should return an a href based on item element" do
-    inner_text = mock(:inner_text=>"text")
-    item = mock do |l|
-      expects(:[]).with("rdf:about").returns("link")
-      expects(:at).with("title").returns(inner_text)
-    end
-
-    create_link(item).should == "<a href=\"link\">text</a>"
+    search_location("keyword", "url").should == items
   end
 
   specify "items should get all item elements from doc" do
-    doc = mock { expects(:search).with("item").returns(1) }
-    items(doc).should == 1
+    item = stub
+    stubs(:hashify).with(item).returns(1)
+    doc = mock { expects(:search).with("item").returns([item]) }
+    items(doc).should == [1]
+  end
+
+  specify "items should hashify all item elements from doc" do
+    item = stub
+    expects(:hashify).with(item).returns(1)
+    doc = stub { stubs(:search).returns([item]) }
+    items(doc).should == [1]
   end
 
   specify "categories should fetch doc the main sfbay page" do

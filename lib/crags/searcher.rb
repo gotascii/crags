@@ -2,6 +2,10 @@ module Crags
   module Searcher
     include Fetch
 
+    def strip_http(url)
+      url.gsub(/http\:\/\/(.*)\//,'\1')
+    end
+
     def location_doc
       fetch_doc("http://geo.craigslist.org/iso/us")
     end
@@ -11,7 +15,7 @@ module Crags
     end
 
     def locations
-      location_links.collect{|link| link["href"].gsub(/http\:\/\/(.*)\//,'\1') }
+      location_links.collect{|link| strip_http(link["href"]) }
     end
 
     def categories
@@ -32,22 +36,23 @@ module Crags
     end
 
     def items(doc)
-      doc.search("item")
+      doc.search("item").collect do |item|
+        hashify(item)
+      end
+    end
+
+    def hashify(item)
+      title = item.at("title").inner_text
+      url = strip_http(item["rdf:about"])
+      {:title => title, :url => url}
     end
 
     def search_location(keyword, loc, category = 'sss', &block)
       doc = fetch_doc("http://#{loc}/search/#{category}?query=#{keyword}&format=rss")
       items(doc).collect do |item|
-        link = create_link(item)
-        yield link if block_given?
-        link
+        yield item if block_given?
+        item
       end
-    end
-
-    def create_link(item)
-      link = item["rdf:about"]
-      title = item.at("title").inner_text
-      "<a href=\"#{link}\">#{title}</a>"
     end
   end
 end
