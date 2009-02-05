@@ -44,7 +44,8 @@ module Crags
     def hashify(item)
       title = item.at("title").inner_text
       url = strip_http(item["rdf:about"])
-      {:title => title, :url => url}
+      date = DateTime.parse(item.at("dc:date").inner_text)
+      {:title => title, :url => url, :date => date}
     end
 
     def search_location(keyword, loc, category = 'sss', &block)
