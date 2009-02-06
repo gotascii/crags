@@ -3,7 +3,7 @@ module Crags
     include Fetch
 
     def strip_http(url)
-      url.gsub(/^http\:\/\/(.*)/,'\1')
+      url.gsub(/http\:\/\/(.*)(\/|(.html))/,'\1\3')
     end
 
     def location_doc
