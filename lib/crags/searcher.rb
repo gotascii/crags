@@ -48,8 +48,12 @@ module Crags
       {:title => title, :url => url, :date => date}
     end
 
+    def search_location_link(keyword, loc, category = 'sss')
+      "http://#{loc}/search/#{category}?query=#{keyword}"
+    end
+
     def search_location(keyword, loc, category = 'sss', &block)
-      doc = fetch_doc("http://#{loc}/search/#{category}?query=#{keyword}&format=rss")
+      doc = fetch_doc("#{search_location_link(keyword, loc, category)}&format=rss")
       items(doc).collect do |item|
         yield item if block_given?
         item
