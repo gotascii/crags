@@ -1,6 +1,7 @@
 module Crags
   module Searcher
     include Fetch
+    include ERB::Util
 
     def strip_http(url)
       url.gsub(/http\:\/\/(.*)(\/|(.html))/,'\1\3')
@@ -49,7 +50,7 @@ module Crags
     end
 
     def search_location_link(keyword, loc, category = 'sss')
-      "http://#{loc}/search/#{category}?query=#{keyword}"
+      "http://#{loc}/search/#{category}?query=#{url_encode(keyword)}"
     end
 
     def search_location(keyword, loc, category = 'sss', &block)

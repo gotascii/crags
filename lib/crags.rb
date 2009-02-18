@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'curb'
 require 'hpricot'
+require "erb"
 
 module Crags
   VERSION = '1.2.6'
