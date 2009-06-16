@@ -11,7 +11,6 @@ lib/crags/runner.rb
 lib/crags/searcher.rb
 lib/js/client.html
 test/crags/fetch_test.rb
-test/crags/locations_test.rb
 test/crags/proxy_test.rb
 test/crags/runner_test.rb
 test/crags/searcher_test.rb
