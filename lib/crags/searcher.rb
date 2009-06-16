@@ -7,16 +7,16 @@ module Crags
       url.gsub(/http\:\/\/(.*)(\/|(.html))/,'\1\3')
     end
 
-    def location_doc
-      fetch_doc("http://geo.craigslist.org/iso/us")
+    def location_doc(country)
+      fetch_doc(country.url)
     end
 
-    def location_links
-      location_doc.search("#list a")
+    def location_links(country)
+      location_doc(country).search("#list a")
     end
 
-    def locations
-      location_links.collect{|link| strip_http(link["href"]) }
+    def locations(country = Crags::Locations.us)
+      location_links(country).collect{|link| strip_http(link["href"]) }
     end
 
     def categories
@@ -29,8 +29,8 @@ module Crags
       categories
     end
 
-    def search(keyword, category = 'sss', &block)
-      locations.collect do |loc|
+    def search(keyword, country = Crags::Locations.us, category = 'sss', &block)
+      locations(country).collect do |loc|
         sleep(1 + rand(3))
         search_location(keyword, loc, category, &block)
       end.flatten

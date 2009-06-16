@@ -3,9 +3,12 @@ History.txt
 Manifest.txt
 README.txt
 Rakefile
+countries.yml
 crags.gemspec
+lib/core_ext.rb
 lib/crags.rb
 lib/crags/fetch.rb
+lib/crags/locations.rb
 lib/crags/proxy.rb
 lib/crags/runner.rb
 lib/crags/searcher.rb

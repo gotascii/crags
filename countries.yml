@@ -1,0 +1,12 @@
+us:
+  name: United States
+  url: http://geo.craigslist.org/iso/us
+ca:
+  name: Canada
+  url: http://geo.craigslist.org/iso/ca
+gb:
+  name: United Kingdom
+  url: http://geo.craigslist.org/iso/gb
+jp:
+  name: Japan
+  url: http://geo.craigslist.org/iso/jp
