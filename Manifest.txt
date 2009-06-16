@@ -9,7 +9,6 @@ lib/crags/fetch.rb
 lib/crags/proxy.rb
 lib/crags/runner.rb
 lib/crags/searcher.rb
-lib/js/client.html
 test/crags/fetch_test.rb
 test/crags/proxy_test.rb
 test/crags/runner_test.rb
