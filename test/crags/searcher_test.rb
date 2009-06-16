@@ -16,8 +16,7 @@ class Crags::SearcherTest < Test::Unit::TestCase
 
     should "location doc should fetch doc at location url" do
       expects(:fetch_doc).with("http://geo.craigslist.org/iso/us").returns("doc")
-      country = Crags::Locations.us
-      location_doc(country).should == "doc"
+      location_doc('us').should == "doc"
     end
 
     should "location links should get all a tags from div with id list" do
@@ -32,7 +31,7 @@ class Crags::SearcherTest < Test::Unit::TestCase
         links << mock {|m| m.expects(:[]).with("href").returns("http://url#{i}/") }
       end
       stubs(:location_links).returns(links)
-      locations.should == ["url0", "url1"]
+      locations('us').should == ["url0", "url1"]
     end
 
     should "search should search location for each location with keyword and return list" do
@@ -115,7 +114,6 @@ class Crags::SearcherTest < Test::Unit::TestCase
 
     should "search should pass parameter to search location" do
       stubs(:locations).returns([0])
-      Crags::Locations.stubs(:us).returns("us")
       expects(:search_location).with('keyword', 0, 'chum')
       search('keyword', 'us', 'chum')
     end

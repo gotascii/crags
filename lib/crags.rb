@@ -2,13 +2,9 @@ require 'rubygems'
 require 'curb'
 require 'hpricot'
 require 'erb'
-require 'yaml'
-require 'ostruct'
-
-require File.dirname(__FILE__) + '/core_ext'
 
 module Crags
-  VERSION = '1.3.0'
+  VERSION = '1.4.0'
   LIBPATH = ::File.expand_path(::File.dirname(__FILE__)) + ::File::SEPARATOR
   PATH = ::File.dirname(LIBPATH) + ::File::SEPARATOR
 
@@ -23,10 +19,39 @@ module Crags
   def self.path( *args )
     args.empty? ? PATH : ::File.join(PATH, *args)
   end
+
+  COUNTRIES = [
+    'jp',
+    'ar',
+    'bd',
+    'br',
+    'ca',
+    'cl',
+    'co',
+    'cr',
+    'cz',
+    'eg',
+    'hu',
+    'id',
+    'ie',
+    'il',
+    'lb',
+    'my',
+    'nl',
+    'nz',
+    'no',
+    'pk',
+    'pa',
+    'ru',
+    'th',
+    'ae',
+    'us',
+    've',
+    'vn'
+  ]
 end
 
 require 'crags/fetch'
-require 'crags/locations'
 require 'crags/proxy'
 require 'crags/searcher'
 require 'crags/runner'
