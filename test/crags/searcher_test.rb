@@ -34,6 +34,13 @@ class Crags::SearcherTest < Test::Unit::TestCase
       locations('us').should == ["url0", "url1"]
     end
 
+    should "locations should return array of one url using location_urls last_effective_url when no links are present on location_url page" do
+      stubs(:location_links).returns([])
+      req = mock(:last_effective_url => 'http://url.org/')
+      stubs(:location_request).with('us').returns(req)
+      locations('us').should == ["url.org"]
+    end
+
     should "search should search location for each location with keyword and return list" do
       locations = ["url0", "url1"]
 
