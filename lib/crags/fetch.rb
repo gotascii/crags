@@ -5,7 +5,15 @@ module Crags
     end
 
     def fetch_html(url)
-      Curl::Easy.perform(url).body_str
+      req = Curl::Easy.perform(url)
+      req.body_str
+    end
+
+    def fetch_request(url)
+      req = Curl::Easy.new(url)
+      req.follow_location = true
+      req.perform
+      req
     end
   end
 end

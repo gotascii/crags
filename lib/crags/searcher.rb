@@ -7,8 +7,16 @@ module Crags
       url.gsub(/http\:\/\/(.*)(\/|(.html))/,'\1\3')
     end
 
+    def location_link(country)
+      "http://geo.craigslist.org/iso/#{country}"
+    end
+
     def location_doc(country)
-      fetch_doc("http://geo.craigslist.org/iso/#{country}")
+      fetch_doc(location_link(country))
+    end
+
+    def location_request(country)
+      fetch_request(location_link(country))
     end
 
     def location_links(country)
@@ -16,7 +24,12 @@ module Crags
     end
 
     def locations(country)
-      location_links(country).collect{|link| strip_http(link["href"]) }
+      linkz = location_links(country)
+      if linkz.empty?
+        [location_request(country).last_effective_url]
+      else
+        linkz.collect{|link| strip_http(link["href"]) }
+      end
     end
 
     def categories
