@@ -25,11 +25,8 @@ module Crags
 
     def locations(country)
       linkz = location_links(country)
-      if linkz.empty?
-        [location_request(country).last_effective_url]
-      else
-        linkz.collect{|link| strip_http(link["href"]) }
-      end
+      linkz = [location_request(country).last_effective_url] if linkz.empty?
+      linkz.collect{|link| strip_http(link["href"]) }
     end
 
     def categories
