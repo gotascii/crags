@@ -14,6 +14,11 @@ class Crags::SearcherTest < Test::Unit::TestCase
       strip_http(url).should == "omg"
     end
 
+    should "strip_http should remove http:// when there is no trailing slash" do
+      url = "http://omg"
+      strip_http(url).should == "omg"
+    end
+
     should "location doc should fetch doc at location url" do
       expects(:fetch_doc).with("http://geo.craigslist.org/iso/us").returns("doc")
       location_doc('us').should == "doc"

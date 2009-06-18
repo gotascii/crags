@@ -4,7 +4,7 @@ module Crags
     include ERB::Util
 
     def strip_http(url)
-      url.gsub(/http\:\/\/(.*)(\/|(.html))/,'\1\3')
+      url.gsub(/^http\:\/\//,'').gsub(/\/$/,'')
     end
 
     def location_link(country)
