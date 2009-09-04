@@ -5,7 +5,7 @@ module Crags
     end
 
     def fetch_html(url)
-      req = Curl::Easy.perform(url)
+      req = fetch_request(url)
       req.body_str
     end
 
