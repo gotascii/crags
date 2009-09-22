@@ -4,7 +4,7 @@ require 'hpricot'
 require 'erb'
 
 module Crags
-  VERSION = '1.4.8'
+  VERSION = '1.4.9'
   LIBPATH = ::File.expand_path(::File.dirname(__FILE__)) + ::File::SEPARATOR
   PATH = ::File.dirname(LIBPATH) + ::File::SEPARATOR
 
