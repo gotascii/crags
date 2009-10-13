@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "crags.gemspec",
      "lib/crags.rb",
      "lib/crags/fetch.rb",
      "lib/crags/proxy.rb",
