@@ -2,7 +2,7 @@
 
 A library to help search across multiple craigslist locations.
 
-== USAGE:
+== Usage
 
 # searches all available craigslist sites for a keyword in "for sale".
 search(keyword)
@@ -12,7 +12,7 @@ search(keyword, 'sss')
 
 There are a bunch of helpful api methods, check the tests for more info.
 
-== REQUIREMENTS:
+== Requirements
 
 hpricot
 curb
