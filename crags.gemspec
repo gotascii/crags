@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = nil
+  s.summary = %q{A library to help search across multiple craigslist locations.}
   s.test_files = [
     "test/crags/fetch_test.rb",
      "test/crags/proxy_test.rb",

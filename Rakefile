@@ -5,6 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "crags"
+    gem.summary = %Q{A library to help search across multiple craigslist locations.}
     gem.description = %Q{A library to help search across multiple craigslist locations.}
     gem.email = "gotascii@gmail.com"
     gem.homepage = "http://github.com/gotascii/crags"
