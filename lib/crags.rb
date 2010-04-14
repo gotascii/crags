@@ -15,6 +15,7 @@ module Crags
     'cz',
     'de',
     'eg',
+    'gb',
     'hu',
     'id',
     'ie',
