@@ -42,9 +42,9 @@ module Crags
       categories
     end
 
-    def search(keyword, country = 'us', category = 'sss', &block)
+    def search(keyword, country = 'us', category = 'sss', interval = 1, &block)
       locations(country).collect do |loc|
-        sleep(1 + rand(3))
+        sleep(interval)
         search_location(keyword, loc, category, &block)
       end.flatten
     end
