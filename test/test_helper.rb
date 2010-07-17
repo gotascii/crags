@@ -1,5 +1,0 @@
-require 'rubygems'
-require 'shoulda'
-require 'matchy'
-require 'mocha'
-require 'crags'

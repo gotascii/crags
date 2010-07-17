@@ -1,5 +1,3 @@
-require 'curb'
-require 'hpricot'
 require 'erb'
 
 module Crags
@@ -37,6 +35,5 @@ module Crags
 end
 
 require 'crags/fetch'
-require 'crags/proxy'
 require 'crags/searcher'
 require 'crags/runner'
