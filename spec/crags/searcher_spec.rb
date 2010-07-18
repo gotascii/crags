@@ -135,15 +135,15 @@ describe Crags::Searcher do
     categories
   end
 
-  # it "generates a hash with link inner html keys and link href values" do
-  #   link = stub(:inner_html => "inner_html") do
-  #     stubs(:[]).with("href").returns("href")
-  #   end
-  # 
-  #   doc = stub(:search => [link, link])
-  #   stubs(:fetch_doc).returns(doc)
-  #   categories.should == {'inner_html' => 'href', 'inner_html' => 'href'}
-  # end
+  it "generates a hash with link inner html keys and link href values" do
+    link = stub
+    link.stub!(:inner_html).and_return("inner_html")
+    link.stub!(:[]).with("href").and_return("href")
+    doc = stub
+    doc.stub!(:search).and_return([link, link])
+    stub!(:fetch_doc).and_return(doc)
+    categories.should == {'inner_html' => 'href', 'inner_html' => 'href'}
+  end
 
   it "accepts a category parameter" do
     should_receive(:fetch_doc).with("http://loc/search/scram?query=keyword&format=rss")
