@@ -5,34 +5,36 @@
 
 Gem::Specification.new do |s|
   s.name = %q{crags}
-  s.version = "1.6.0"
+  s.version = "1.7.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Marney"]
-  s.date = %q{2010-04-14}
+  s.date = %q{2010-07-18}
   s.description = %q{A library to help search across multiple craigslist locations.}
   s.email = %q{gotascii@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.rdoc",
+     "TODO"
   ]
   s.files = [
-    ".gitignore",
+    ".bundle/config",
+     ".gitignore",
+     "Gemfile",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "TODO",
      "VERSION",
      "crags.gemspec",
      "lib/crags.rb",
      "lib/crags/fetch.rb",
-     "lib/crags/proxy.rb",
      "lib/crags/runner.rb",
      "lib/crags/searcher.rb",
-     "test/crags/fetch_test.rb",
-     "test/crags/proxy_test.rb",
-     "test/crags/runner_test.rb",
-     "test/crags/searcher_test.rb",
-     "test/test_helper.rb"
+     "spec/crags/fetch_spec.rb",
+     "spec/crags/runner_spec.rb",
+     "spec/crags/searcher_spec.rb",
+     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/gotascii/crags}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -40,11 +42,10 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A library to help search across multiple craigslist locations.}
   s.test_files = [
-    "test/crags/fetch_test.rb",
-     "test/crags/proxy_test.rb",
-     "test/crags/runner_test.rb",
-     "test/crags/searcher_test.rb",
-     "test/test_helper.rb"
+    "spec/crags/fetch_spec.rb",
+     "spec/crags/runner_spec.rb",
+     "spec/crags/searcher_spec.rb",
+     "spec/spec_helper.rb"
   ]
 
   if s.respond_to? :specification_version then

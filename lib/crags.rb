@@ -1,3 +1,5 @@
+require 'bundler'
+Bundler.require
 require 'erb'
 
 module Crags
