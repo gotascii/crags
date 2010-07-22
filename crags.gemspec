@@ -18,8 +18,7 @@ Gem::Specification.new do |s|
      "TODO"
   ]
   s.files = [
-    ".bundle/config",
-     ".gitignore",
+    ".gitignore",
      "Gemfile",
      "LICENSE",
      "README.rdoc",

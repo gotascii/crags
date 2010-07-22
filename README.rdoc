@@ -12,7 +12,7 @@ search also takes a category
 
 There are a bunch of helpful api methods, check the tests for more info.
 
-== Requirements
+== Installation
 
 * hpricot
 * curb

@@ -1,8 +1,8 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
-describe Crags::Fetch do
+describe Fetcher do
   before do
-    extend Crags::Fetch
+    extend Fetcher
   end
 
   it "hpricots the fetched html" do

@@ -1,8 +1,8 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
-describe Crags::Searcher do
+describe Searcher do
   before do
-    extend Crags::Searcher
+    extend Searcher
   end
 
   it "hpricots the fetched html" do
@@ -32,47 +32,6 @@ describe Crags::Searcher do
     req.should_receive(:perform)
     Curl::Easy.stub!(:new).and_return(req)
     fetch_request("url")
-  end
-
-  it "removes http:// and trailing /" do
-    url = "http://omg/"
-    strip_http(url).should == "omg"
-  end
-
-  it "removes http:// when there is no trailing slash" do
-    url = "http://omg"
-    strip_http(url).should == "omg"
-  end
-
-  it "fetches a doc at location url" do
-    should_receive(:fetch_doc).with("http://geo.craigslist.org/iso/us").and_return("doc")
-    location_doc('us').should == "doc"
-  end
-
-  it "gets all a tags from div with id list" do
-    doc = mock
-    doc.should_receive(:search).with("#list a").and_return("links")
-    stub!(:location_doc).and_return(doc)
-    location_links('us').should == "links"
-  end
-
-  it "generates an array of urls using a location link's href" do
-    links = []
-    2.times do |i|
-      link = mock
-      link.should_receive(:[]).with("href").and_return("http://url#{i}/")
-      links << link
-    end
-    stub!(:location_links).and_return(links)
-    locations('us').should == ["url0", "url1"]
-  end
-
-  it "generates an array with one url using location_urls last_effective_url when no links are present on location_url page" do
-    stub!(:location_links).and_return([])
-    req = mock
-    req.should_receive(:last_effective_url).and_return('http://url.org/')
-    stub!(:location_request).with('us').and_return(req)
-    locations('us').should == ["url.org"]
   end
 
   it "searches location for each location with keyword and return list" do

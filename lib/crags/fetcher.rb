@@ -1,5 +1,5 @@
 module Crags
-  module Fetch
+  module Fetcher
     def fetch_doc(url)
       Hpricot.parse(fetch_html(url))
     end

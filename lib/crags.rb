@@ -36,6 +36,8 @@ module Crags
   ]
 end
 
-require 'crags/fetch'
+require 'ext/string'
+require 'crags/fetcher'
 require 'crags/searcher'
 require 'crags/runner'
+require 'crags/country'
