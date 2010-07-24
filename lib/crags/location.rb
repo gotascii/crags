@@ -1,5 +1,5 @@
 module Crags
-  module Location
+  class Location
     attr_reader :domain
 
     def initialize(domain)

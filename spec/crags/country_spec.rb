@@ -6,7 +6,8 @@ describe Country do
   end
 
   it "generates the url for a country" do
-    @country.url.should == "#{Country::URL}/us"
+    Crags::Config.stub!(:country_url).and_return("country_url")
+    @country.url.should == "country_url/us"
   end
 
   it "is initialized with a country code" do
@@ -40,6 +41,8 @@ describe Country do
       links << link
     end
     @country.stub!(:links).and_return(links)
+    Location.should_receive(:new).with("url0").and_return("url0")
+    Location.should_receive(:new).with("url1").and_return("url1")
     @country.locations.should == ["url0", "url1"]
   end
 
@@ -49,6 +52,7 @@ describe Country do
     req = mock
     req.should_receive(:last_effective_url).and_return('http://url.org/')
     @country.stub!(:request).and_return(req)
+    Location.should_receive(:new).with("url.org").and_return("url.org")
     @country.locations.should == ["url.org"]
   end
 end

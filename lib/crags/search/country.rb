@@ -1,11 +1,13 @@
 module Crags
   module Search
     class Country
-      def initialize(keyword, category, country, interval)
-        @country = country
-        @keyword = keyword
-        @category = category
-        @interval = 1
+      include Search
+      attr_reader :country, :interval
+
+      def initialize(opts = {})
+        super(opts)
+        @country = @opts[:country]
+        @interval = @opts[:interval]
       end
 
       def locations

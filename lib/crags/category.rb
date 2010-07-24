@@ -13,12 +13,16 @@ module Crags
     end
 
     def self.links
-      doc.search("div.cats a")
+      doc.search("div.col a").select do |link|
+        (link["href"] =~ /forum/).nil?
+      end
     end
 
     def self.all
       links.collect do |link|
-        Category.new(link.inner_html, link["href"])
+        url = link["href"]
+        name = link.inner_html
+        Category.new(name, url)
       end
     end
   end

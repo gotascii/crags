@@ -2,14 +2,27 @@ require 'bundler'
 Bundler.require
 require 'erb'
 require 'ostruct'
+require 'ext/string'
+require 'ext/hpricot/doc'
+require 'ext/hpricot/elem'
+require 'crags/fetcher'
+require 'crags/country'
+require 'crags/location'
+require 'crags/category'
+require 'crags/search'
 
 module Crags
   Config = OpenStruct.new({
-    :interval => 1,
-    :keyword => 'bicycle',
+    :defaults => {
+      :keyword => 'bicycle',
+      :category => Category.new('for sale', 'sss/'),
+      :country => Country.new('us'),
+      :location => Location.new('sfbay.craigslist.org'),
+      :interval => 1
+    },
     :category_url => "http://sfbay.craigslist.org/",
     :country_url => "http://geo.craigslist.org/iso",
-    :countries => [
+    :country_codes => [
       'jp',
       'ar',
       'bd',
@@ -42,11 +55,3 @@ module Crags
     ]
   })
 end
-
-require 'ext/string'
-require 'ext/hpricot/doc'
-require 'ext/hpricot/elem'
-require 'crags/fetcher'
-require 'crags/country'
-require 'crags/location'
-require 'crags/category'

@@ -3,15 +3,16 @@ module Crags
     class Location
       include ERB::Util
       include Fetcher
+      include Search
+      attr_reader :location
 
-      def initialize(keyword, category, location)
-        @keyword = keyword
-        @category = category
-        @location = location
+      def initialize(opts = {})
+        super(opts)
+        @location = @opts[:location]
       end
 
       def url
-        "#{location.url}/search/#{category}?query=#{url_encode(keyword)}"
+        "#{location.url}/search#{category.url}?query=#{url_encode(keyword)}"
       end
 
       def doc
