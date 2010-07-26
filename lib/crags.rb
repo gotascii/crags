@@ -3,13 +3,14 @@ Bundler.require
 require 'erb'
 require 'ostruct'
 require 'ext/string'
-require 'ext/hpricot/doc'
-require 'ext/hpricot/elem'
 require 'crags/fetcher'
 require 'crags/country'
 require 'crags/location'
 require 'crags/category'
-require 'crags/search'
+require 'crags/item'
+require 'crags/search/search'
+require 'crags/search/location'
+require 'crags/search/country'
 
 module Crags
   Config = OpenStruct.new({

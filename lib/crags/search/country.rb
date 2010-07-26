@@ -1,11 +1,10 @@
 module Crags
   module Search
-    class Country
-      include Search
+    class Country < Search
       attr_reader :country, :interval
 
       def initialize(opts = {})
-        super(opts)
+        super
         @country = @opts[:country]
         @interval = @opts[:interval]
       end
@@ -14,11 +13,11 @@ module Crags
         country.locations
       end
 
-      def perform(&block)
+      def items
         locations.collect do |loc|
           sleep(interval)
-          search = Search::Location.new(keyword, category, &block)
-          search.perform
+          search = Location.new(opts.merge(:location => loc))
+          search.items
         end.flatten
       end
     end

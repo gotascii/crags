@@ -1,15 +1,10 @@
 require 'spec_helper'
 
-describe Search do
-  class TestClass
-    include Search
-  end
-
+describe Search::Search do
   before do
-    Crags::Config.defaults[:keyword] = "cribz"
-    Crags::Config.defaults[:category] = "cribcat"
-    @default_obj = TestClass.new
-    @custom_obj = TestClass.new(:keyword => 'zaks', :category => 'catz')
+    Crags::Config.stub!(:defaults).and_return({:keyword => 'cribz', :category => 'cribcat'})
+    @default_obj = Search::Search.new
+    @custom_obj = Search::Search.new(:keyword => 'zaks', :category => 'catz')
   end
 
   it "has a custom keyword" do

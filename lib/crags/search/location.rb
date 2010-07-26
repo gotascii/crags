@@ -1,9 +1,8 @@
 module Crags
   module Search
-    class Location
+    class Location < Search
       include ERB::Util
       include Fetcher
-      include Search
       attr_reader :location
 
       def initialize(opts = {})
@@ -20,13 +19,8 @@ module Crags
       end
 
       def items
-        doc.items
-      end
-
-      def perform
-        items.collect do |item|
-          yield item if block_given?
-          item
+        doc.search("item").collect do |elem|
+          Item.new(elem)
         end
       end
     end
