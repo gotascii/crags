@@ -5,17 +5,16 @@
 
 Gem::Specification.new do |s|
   s.name = %q{crags}
-  s.version = "1.7.0"
+  s.version = "2.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Marney"]
-  s.date = %q{2010-07-18}
+  s.date = %q{2010-07-26}
   s.description = %q{A library to help search across multiple craigslist locations.}
   s.email = %q{gotascii@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc",
-     "TODO"
+     "README.rdoc"
   ]
   s.files = [
     ".gitignore",
@@ -23,16 +22,29 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
-     "TODO",
      "VERSION",
      "crags.gemspec",
      "lib/crags.rb",
-     "lib/crags/fetch.rb",
-     "lib/crags/runner.rb",
-     "lib/crags/searcher.rb",
-     "spec/crags/fetch_spec.rb",
-     "spec/crags/runner_spec.rb",
-     "spec/crags/searcher_spec.rb",
+     "lib/crags/category.rb",
+     "lib/crags/country.rb",
+     "lib/crags/fetcher.rb",
+     "lib/crags/item.rb",
+     "lib/crags/location.rb",
+     "lib/crags/search/country.rb",
+     "lib/crags/search/location.rb",
+     "lib/crags/search/search.rb",
+     "lib/ext/hpricot/elem.rb",
+     "lib/ext/string.rb",
+     "spec/crags/category_spec.rb",
+     "spec/crags/country_spec.rb",
+     "spec/crags/fetcher_spec.rb",
+     "spec/crags/item_spec.rb",
+     "spec/crags/location_spec.rb",
+     "spec/crags/search/country_spec.rb",
+     "spec/crags/search/location_spec.rb",
+     "spec/crags/search/search_spec.rb",
+     "spec/ext/hpricot/elem_spec.rb",
+     "spec/ext/string_spec.rb",
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/gotascii/crags}
@@ -41,9 +53,16 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A library to help search across multiple craigslist locations.}
   s.test_files = [
-    "spec/crags/fetch_spec.rb",
-     "spec/crags/runner_spec.rb",
-     "spec/crags/searcher_spec.rb",
+    "spec/crags/category_spec.rb",
+     "spec/crags/country_spec.rb",
+     "spec/crags/fetcher_spec.rb",
+     "spec/crags/item_spec.rb",
+     "spec/crags/location_spec.rb",
+     "spec/crags/search/country_spec.rb",
+     "spec/crags/search/location_spec.rb",
+     "spec/crags/search/search_spec.rb",
+     "spec/ext/hpricot/elem_spec.rb",
+     "spec/ext/string_spec.rb",
      "spec/spec_helper.rb"
   ]
 
@@ -52,9 +71,15 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<curb>, [">= 0"])
+      s.add_runtime_dependency(%q<hpricot>, [">= 0"])
     else
+      s.add_dependency(%q<curb>, [">= 0"])
+      s.add_dependency(%q<hpricot>, [">= 0"])
     end
   else
+    s.add_dependency(%q<curb>, [">= 0"])
+    s.add_dependency(%q<hpricot>, [">= 0"])
   end
 end
 

@@ -52,11 +52,7 @@ of country wide searches with a 0s interval will probably get your IP banned.
 
 == Installation
 
-First, install the gem.
-  gem install bundler
-
-Next, use bundler (http://gembundler.com) to install dependencies.
-  bundle install
+  gem install crags
 
 == Note on Patches/Pull Requests 
 
