@@ -4,18 +4,59 @@ A library to help search across multiple craigslist locations.
 
 == Usage
 
-searches all available craigslist sites for a keyword in "for sale".
- search(keyword)
+There are two ways to search craigslist using crags. You can search by keyword
+in a single location scoped to a category. You can also search by keyword
+across a country scoped by category. Each search type also has a set of
+configurable options.
 
-search also takes a category
- search(keyword, 'sss')
+=== Single Location Search
 
-There are a bunch of helpful api methods, check the tests for more info.
+Options:
+  :keyword
+    default: bicycle (because bicycles are awesome)
+  :location
+    default: sfbay.craigslist.com (because that is where it all began)
+  :category
+    default: for sale (because buying another bike is always a good idea)
+
+Locations and Categories are full-on Ruby objects. You can get all of the
+Categories using:
+  Category.all
+
+Search a single craigslist location (e.g. sfbay.craigslist.com)
+  s = Search::Location.new(:keyword => 'shoes')
+  s.keyword     # this will shoes instead of the default
+  s.location    # this will the sfbay Location
+  s.category    # the for sale Category
+  s.items       # will return a set of Items
+
+Each Item has a title, url (which is the link to the item on craigslist), and
+a date, which is the date the item was posted on craigslist.
+
+=== Country Search
+
+Options:
+  :keyword
+    default: bicycle (because bicycles are awesome)
+  :category
+    default: for sale (because buying another bike is always a good idea)
+  :country
+    default: us (because that is where I live)
+  :interval
+    default: 1 (because hammering the cl servers will make em' angry)
+
+Country searches are a combined set of individual location searches. Crags
+imposes a 1 second delay between each location search in order not to overload
+the Craigslist servers. You can change this at your own risk, but doing a lot
+of country wide searches with a 0s interval will probably get your IP banned.
 
 == Installation
 
-* hpricot
-* curb
+First, install the gem.
+  gem install bundler
+
+Next, use bundler (http://gembundler.com) to install dependencies.
+  bundle install
 
 == Note on Patches/Pull Requests 
 

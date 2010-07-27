@@ -17,7 +17,7 @@ module Crags
   Config = OpenStruct.new({
     :defaults => {
       :keyword => 'bicycle',
-      :category => Category.new('for sale', 'sss/'),
+      :category => Category.new('for sale', 'sss'),
       :country => Country.new('us'),
       :location => Location.new('sfbay.craigslist.org'),
       :interval => 1

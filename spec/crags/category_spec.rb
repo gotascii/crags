@@ -41,7 +41,7 @@ end
 
 describe Category do
   before do
-    @cat = Category.new('name', 'url')
+    @cat = Category.new('name', 'abbr')
   end
 
   it "has a name reader" do
@@ -49,6 +49,6 @@ describe Category do
   end
 
   it "has a url reader" do
-    @cat.url.should == 'url'
+    @cat.url.should == '/abbr'
   end
 end

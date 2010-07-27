@@ -3,9 +3,9 @@ module Crags
     extend Fetcher
     attr_reader :name, :url
 
-    def initialize(name, url)
+    def initialize(name, abbr)
       @name = name
-      @url = url
+      @url = "/#{abbr}"
     end
 
     def self.doc
