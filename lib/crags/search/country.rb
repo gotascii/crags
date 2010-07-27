@@ -14,11 +14,12 @@ module Crags
       end
 
       def items
-        locations.collect do |loc|
+        combined_items = locations.collect do |loc|
           sleep(interval)
           search = Location.new(opts.merge(:location => loc))
           search.items
-        end.flatten
+        end
+        combined_items.flatten
       end
     end
   end

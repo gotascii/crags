@@ -46,7 +46,6 @@ describe Country do
     @country.locations.should == ["url0", "url1"]
   end
 
-
   it "generates an array containing one url using location_urls last_effective_url when no links are present" do
     @country.stub!(:links).and_return([])
     req = mock

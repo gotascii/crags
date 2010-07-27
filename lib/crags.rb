@@ -3,6 +3,7 @@ Bundler.require
 require 'erb'
 require 'ostruct'
 require 'ext/string'
+require 'ext/hpricot/elem'
 require 'crags/fetcher'
 require 'crags/country'
 require 'crags/location'
@@ -23,36 +24,6 @@ module Crags
     },
     :category_url => "http://sfbay.craigslist.org/",
     :country_url => "http://geo.craigslist.org/iso",
-    :country_codes => [
-      'jp',
-      'ar',
-      'bd',
-      'br',
-      'ca',
-      'cl',
-      'co',
-      'cr',
-      'cz',
-      'de',
-      'eg',
-      'gb',
-      'hu',
-      'id',
-      'ie',
-      'il',
-      'lb',
-      'my',
-      'nl',
-      'nz',
-      'no',
-      'pk',
-      'pa',
-      'ru',
-      'th',
-      'ae',
-      'us',
-      've',
-      'vn'
-    ]
+    :country_codes => ['jp', 'ar', 'bd', 'br', 'ca', 'cl', 'co', 'cr', 'cz', 'de', 'eg', 'gb', 'hu', 'id', 'ie', 'il', 'lb', 'my', 'nl', 'nz', 'no', 'pk', 'pa', 'ru', 'th', 'ae', 'us', 've', 'vn']
   })
 end

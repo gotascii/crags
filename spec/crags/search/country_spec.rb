@@ -50,9 +50,18 @@ describe Search::Country do
     end
 
     it "performs the search for each location" do
-      @search.should_receive(:items).twice.and_return(["result"])
+      @search.should_receive(:items).twice
       @custom.stub!(:locations).and_return(@locations)
-      @custom.items.should == ["result", "result"]
+      @custom.items
+    end
+
+    it "flattens the search results" do
+      collect = mock
+      collect.should_receive(:flatten).and_return("flat!")
+      locations = stub
+      locations.stub!(:collect).and_return(collect)
+      @custom.stub!(:locations).and_return(locations)
+      @custom.items.should == "flat!"
     end
   end
 end
