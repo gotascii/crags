@@ -1,5 +1,4 @@
-require 'bundler'
-Bundler.require
+require 'bundler/setup'
 require 'erb'
 require 'ostruct'
 require 'ext/string'

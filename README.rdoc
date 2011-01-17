@@ -25,10 +25,10 @@ Categories using:
 
 Search a single craigslist location (e.g. sfbay.craigslist.com)
   s = Search::Location.new(:keyword => 'shoes')
-  s.keyword     # this will shoes instead of the default
-  s.location    # this will the sfbay Location
-  s.category    # the for sale Category
-  s.items       # will return a set of Items
+  s.keyword     # shoes instead of bicycle
+  s.location    # the sfbay Location
+  s.category    # the 'for sale' Category
+  s.items       # a set of Items that match the search criteria
 
 Each Item has a title, url (which is the link to the item on craigslist), and
 a date, which is the date the item was posted on craigslist.

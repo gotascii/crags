@@ -1,5 +1,18 @@
 require 'spec_helper'
 
+describe Country, "the class" do
+  it "knows all of the codes store in the config" do
+    Crags::Config.stub(:country_codes) { ["code"] }
+    Country.codes.should == ["code"]
+  end
+
+  it "finds all countries" do
+    Country.stub(:codes) { ["code"] }
+    Country.should_receive(:new).with("code") { "country!" }
+    Country.all.should == ["country!"]
+  end
+end
+
 describe Country do
   before do
     @country = Country.new("us")

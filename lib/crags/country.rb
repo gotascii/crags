@@ -3,6 +3,14 @@ module Crags
     include Fetcher
     attr_reader :code
 
+    def self.codes
+      Config.country_codes
+    end
+
+    def self.all
+      codes.collect {|code| new(code)}
+    end
+
     def initialize(code)
       @code = code
     end
