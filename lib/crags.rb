@@ -1,4 +1,5 @@
-require 'bundler/setup'
+require 'hpricot'
+require 'curl'
 require 'erb'
 require 'ostruct'
 require 'ext/string'
