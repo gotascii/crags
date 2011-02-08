@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem "curb"
-gem "hpricot"
+gem "nokogiri"
 
 group :test do
   gem "rspec"

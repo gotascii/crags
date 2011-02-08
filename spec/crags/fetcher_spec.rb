@@ -5,17 +5,17 @@ describe Fetcher do
     extend Fetcher
   end
 
-  it "hpricots the fetched html" do
-    stub!(:fetch_html).with("url").and_return("html")
-    Hpricot.should_receive(:parse).with("html").and_return("doc")
+  it "nokogiris the fetched xml" do
+    stub!(:fetch_xml).with("url").and_return("xml")
+    Nokogiri::XML.should_receive(:parse).with("xml").and_return("doc")
     fetch_doc("url").should == "doc"
   end
 
-  it "fetch_requests a url" do
+  it "fetches a request when fetching xml" do
     curb = mock("curb")
     curb.stub!(:body_str).and_return("uhh")
     should_receive(:fetch_request).with("url").and_return(curb)
-    fetch_html("url").should == "uhh"
+    fetch_xml("url").should == "uhh"
   end
 
   it "creates a new request" do

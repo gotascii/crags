@@ -3,7 +3,7 @@ GEM
   specs:
     curb (0.7.9)
     diff-lcs (1.1.2)
-    hpricot (0.8.3)
+    nokogiri (1.4.4)
     rspec (2.4.0)
       rspec-core (~> 2.4.0)
       rspec-expectations (~> 2.4.0)
@@ -18,5 +18,5 @@ PLATFORMS
 
 DEPENDENCIES
   curb
-  hpricot
+  nokogiri
   rspec

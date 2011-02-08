@@ -1,10 +1,10 @@
 module Crags
   module Fetcher
     def fetch_doc(url)
-      Hpricot.parse(fetch_html(url))
+      Nokogiri::XML.parse(fetch_xml(url))
     end
 
-    def fetch_html(url)
+    def fetch_xml(url)
       req = fetch_request(url)
       req.body_str
     end
