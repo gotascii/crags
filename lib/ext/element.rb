@@ -12,7 +12,10 @@ module Element
   end
 
   def date
-    DateTime.parse(date_str)
+    begin
+      DateTime.parse(date_str)
+    rescue
+    end
   end
 end
 
