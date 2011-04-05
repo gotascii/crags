@@ -7,15 +7,8 @@ module Element
     self["about"].strip_http
   end
 
-  def date_str
-    at("dc|date").content
-  end
-
   def date
-    begin
-      DateTime.parse(date_str)
-    rescue
-    end
+    xpath("dc:date").inner_text
   end
 end
 
