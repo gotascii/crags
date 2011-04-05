@@ -22,15 +22,10 @@ describe Nokogiri::XML::Element do
   end
 
   it "uses the inner_text of the dc:date element for date_str" do
-    dc_date = stub
-    dc_date.stub!(:content).and_return("date_str!")
-    @elem.stub!(:at).with("dc|date").and_return(dc_date)
-    @elem.date_str.should == "date_str!"
-  end
-
-  it "parses date_str to create a real date" do
-    DateTime.should_receive(:parse).with("date_str!").and_return("date!")
-    @elem.stub!(:date_str).and_return("date_str!")
+    date = stub
+    date.stub!(:inner_text).and_return("date!")
+    @elem.stub!(:xpath).with("dc:date").and_return(date)
     @elem.date.should == "date!"
   end
+
 end
