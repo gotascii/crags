@@ -12,6 +12,7 @@ begin
     gem.add_dependency 'nokogiri'
     gem.add_dependency 'curb'
     gem.add_development_dependency 'rspec'
+    gem.add_development_dependency 'jeweler'    
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
