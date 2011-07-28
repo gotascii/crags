@@ -9,6 +9,9 @@ begin
     gem.email = "gotascii@gmail.com"
     gem.homepage = "http://github.com/gotascii/crags"
     gem.authors = ["Justin Marney"]
+    gem.add_dependency 'nokogiri'
+    gem.add_dependency 'curb'
+    gem.add_development_dependency 'rspec'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
