@@ -1,3 +1,4 @@
+require 'date'
 require 'nokogiri'
 require 'curl'
 require 'erb'
