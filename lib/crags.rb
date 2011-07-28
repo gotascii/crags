@@ -1,6 +1,6 @@
 require 'date'
 require 'nokogiri'
-require 'curl'
+require 'patron'
 require 'erb'
 require 'ostruct'
 require 'ext/string'
