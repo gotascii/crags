@@ -57,8 +57,12 @@ describe Search::Location do
       @default.items
     end
 
-    it "collects all created items" do
+    it "gets all created items" do
       @default.items.should == ["crags_item"]
+    end
+    
+    it "gets all items on collect and upcases" do
+      @default.collect{|item| item.upcase}.should == ["CRAGS_ITEM"] 
     end
   end
 end
