@@ -15,11 +15,11 @@ describe Search::Search do
     @custom_obj.category.should == "catz"
   end
 
-  it "has a custom keyword" do
+  it "has a default keyword" do
     @default_obj.keyword.should == "cribz"
   end
 
-  it "has a custom category" do
+  it "has a default category" do
     @default_obj.category.should == "cribcat"
   end
 end
