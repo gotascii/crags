@@ -21,6 +21,11 @@ describe Search::Location do
   it "has custom country" do
     @custom.location.should == @custom_loc
   end
+  
+  it "sets keyword and returns self" do
+    @custom.keyword('parrot').should == @custom
+    @custom.keyword.should == 'parrot'
+  end
 
   it "generate a url based on location, category and keyword" do
     @default.stub!(:url_encode).with('bicycle').and_return('bicycle')

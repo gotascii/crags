@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Marney"]
-  s.date = %q{2011-07-28}
+  s.date = %q{2011-07-29}
   s.description = %q{A library to help search across multiple craigslist locations.}
   s.email = %q{gotascii@gmail.com}
   s.extra_rdoc_files = [
