@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/crags/search/country.rb",
     "lib/crags/search/location.rb",
     "lib/crags/search/search.rb",
+    "lib/ext/attr_chain.rb",
     "lib/ext/element.rb",
     "lib/ext/string.rb",
     "spec/crags/category_spec.rb",

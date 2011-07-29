@@ -22,9 +22,9 @@ describe Search::Location do
     @custom.location.should == @custom_loc
   end
   
-  it "sets keyword and returns self" do
-    @custom.keyword('parrot').should == @custom
-    @custom.keyword.should == 'parrot'
+  it "set location and returns self" do
+    @custom.location("ruby.domain.com").should == @custom
+    @custom.location.should == "ruby.domain.com"
   end
 
   it "generate a url based on location, category and keyword" do

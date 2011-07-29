@@ -3,7 +3,8 @@ module Crags
     class Location < Search
       include ERB::Util
       include Fetcher
-      attr_reader :location
+      extend AttrChain
+      chained_attr_accessor :location
 
       def initialize(opts = {})
         super(opts)
