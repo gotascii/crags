@@ -1,7 +1,9 @@
 module Crags
   module Search
     class Country < Search
-      attr_reader :country, :interval
+      include Enumerable
+      extend AttrChain
+      chained_attr_accessor :country, :interval
 
       def initialize(opts = {})
         super
@@ -20,6 +22,10 @@ module Crags
           search.items
         end
         combined_items.flatten
+      end
+      
+      def each
+        items.each {|i| yield i }
       end
     end
   end

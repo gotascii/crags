@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Marney"]
-  s.date = %q{2011-07-28}
+  s.date = %q{2011-07-29}
   s.description = %q{A library to help search across multiple craigslist locations.}
   s.email = %q{gotascii@gmail.com}
   s.extra_rdoc_files = [
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/crags/search/country.rb",
     "lib/crags/search/location.rb",
     "lib/crags/search/search.rb",
+    "lib/ext/attr_chain.rb",
     "lib/ext/element.rb",
     "lib/ext/string.rb",
     "spec/crags/category_spec.rb",
@@ -55,18 +56,18 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
-      s.add_runtime_dependency(%q<curb>, [">= 0"])
+      s.add_runtime_dependency(%q<patron>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
       s.add_dependency(%q<nokogiri>, [">= 0"])
-      s.add_dependency(%q<curb>, [">= 0"])
+      s.add_dependency(%q<patron>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
     s.add_dependency(%q<nokogiri>, [">= 0"])
-    s.add_dependency(%q<curb>, [">= 0"])
+    s.add_dependency(%q<patron>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
   end

@@ -21,6 +21,11 @@ describe Search::Location do
   it "has custom country" do
     @custom.location.should == @custom_loc
   end
+  
+  it "set location and returns self" do
+    @custom.location("ruby.domain.com").should == @custom
+    @custom.location.should == "ruby.domain.com"
+  end
 
   it "generate a url based on location, category and keyword" do
     @default.stub!(:url_encode).with('bicycle').and_return('bicycle')
@@ -52,8 +57,12 @@ describe Search::Location do
       @default.items
     end
 
-    it "collects all created items" do
+    it "gets all created items" do
       @default.items.should == ["crags_item"]
+    end
+    
+    it "gets all items on collect and upcases" do
+      @default.collect{|item| item.upcase}.should == ["CRAGS_ITEM"] 
     end
   end
 end

@@ -10,7 +10,7 @@ begin
     gem.homepage = "http://github.com/gotascii/crags"
     gem.authors = ["Justin Marney"]
     gem.add_dependency 'nokogiri'
-    gem.add_dependency 'curb'
+    gem.add_dependency 'patron'
     gem.add_development_dependency 'rspec'
     gem.add_development_dependency 'jeweler'    
   end

@@ -5,15 +5,14 @@ module Crags
     end
 
     def fetch_xml(url)
-      req = fetch_request(url)
-      req.body_str
+      resp = fetch_request(url)
+      resp.body
     end
 
     def fetch_request(url)
-      req = Curl::Easy.new(url)
-      req.follow_location = true
-      req.perform
-      req
+      session = Patron::Session.new
+      resp = session.get(url)
+      resp
     end
   end
 end

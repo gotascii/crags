@@ -12,25 +12,19 @@ describe Fetcher do
   end
 
   it "fetches a request when fetching xml" do
-    curb = mock("curb")
-    curb.stub!(:body_str).and_return("uhh")
-    should_receive(:fetch_request).with("url").and_return(curb)
+    patron = mock("patron")
+    patron.stub!(:body).and_return("uhh")
+    should_receive(:fetch_request).with("url").and_return(patron)
     fetch_xml("url").should == "uhh"
   end
 
   it "creates a new request" do
-    req = mock("req")
-    req.stub!(:follow_location=)
-    req.stub!(:perform)
-    Curl::Easy.should_receive(:new).with("url").and_return(req)
-    fetch_request("url").should == req
+    session = mock("session")
+    resp = mock("resp")
+    resp.stub!(:body)
+    Patron::Session.should_receive(:new).and_return(session)
+    session.should_receive(:get).with("url").and_return(resp)
+    fetch_request("url").should == resp
   end
 
-  it "follows redirects for fetched requests" do
-    req = mock("req")
-    req.should_receive(:follow_location=)
-    req.should_receive(:perform)
-    Curl::Easy.stub!(:new).and_return(req)
-    fetch_request("url")
-  end
 end

@@ -2,8 +2,10 @@ module Crags
   module Search
     class Location < Search
       include ERB::Util
+      include Enumerable
       include Fetcher
-      attr_reader :location
+      extend AttrChain
+      chained_attr_accessor :location
 
       def initialize(opts = {})
         super(opts)
@@ -22,6 +24,10 @@ module Crags
         doc.search("item").collect do |elem|
           Item.new(elem)
         end
+      end
+      
+      def each
+        items.each { |item| yield item }
       end
     end
   end
