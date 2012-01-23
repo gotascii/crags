@@ -63,5 +63,15 @@ describe Search::Country do
       @custom.stub!(:locations).and_return(locations)
       @custom.items.should == "flat!"
     end
+    
+    it "collects the search results" do
+      collect = mock
+      collect.should_receive(:flatten).and_return(["flat", "items"])
+      locations = stub
+      locations.stub!(:collect).and_return(collect)
+      @custom.stub!(:locations).and_return(locations)
+      @custom.collect{|x| x.upcase}.should == ["FLAT", "ITEMS"]
+    end
+    
   end
 end
