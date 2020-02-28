@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.add_runtime_dependency("nokogiri", "~> 1.4.4")
   s.add_runtime_dependency("patron", ">= 0")
-  s.add_development_dependency("rake", "~> 0.9.2")
+  s.add_development_dependency("rake", "~> 13.0.1")
   s.add_development_dependency("rdoc") 
   s.add_development_dependency("rspec", "~> 2.4")
 end
